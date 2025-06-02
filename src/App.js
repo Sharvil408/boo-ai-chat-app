@@ -36,7 +36,7 @@ const App = () => {
 
     try {
       const payload = { instances: { prompt: prompt }, parameters: { "sampleCount": 1 } };
-      const apiKey = "AIzaSyAnrKsK5cwWxRGw8ylwAS34FphuCGG1MGo"; // API key updated
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
@@ -278,7 +278,7 @@ console.log('Sum of 5 and 10:', calculateSum(5, 10));
       
       // For generation tasks, we might not need full chat history context
       const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
-      const apiKey = "AIzaSyAnrKsK5cwWxRGw8ylwAS34FphuCGG1MGo"; // API key updated
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
       const response = await fetch(apiUrl, {
@@ -519,7 +519,7 @@ console.log('Sum of 5 and 10:', calculateSum(5, 10));
 
       try {
         const payload = { contents: apiChatHistory };
-        const apiKey = "AIzaSyAnrKsK5cwWxRGw8ylwAS34FphuCGG1MGo"; // API key updated
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         const response = await fetch(apiUrl, {
